@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Budget App </title>
+    <meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  body {
+    background-color: #8fcfd1;
+  }
+  h1 {
+    margin-left: 100px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .row {
+    margin-left: 50px;
+  }
+  #Expense-Title {
+    margin-top: 20px;
+    margin-right: 20px;
+    font-weight: bold;
+    margin-left: 50px;
+    font-size: 25px;
+  }
+  #Expense-value {
+    margin-top: 20px;
+    margin-left: 120px;
+    margin-right: 70px;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  #getvalue1 {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+  text-align: center;
+}
+#getvalue, #getvalue2 {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+  </style>
+  </head>
+  <body>
+    <h1>Budget App</h1>
+
+    <div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Please Enter Your Budget</h5>
+        <input type="number" id="budget"></inpu>
+        <button type="button" onclick="myfunction1()" class="btn btn-success">Calculate</button>
+      </div>
+    </div>
+  </div>
+  <div class=" row col-sm-6">
+    <div class="card text-center" style="width: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">Budget</h5>
+        <i class="fa fa-4x fa-money" aria-hidden="true"></i>
+        <br>
+        <p id="getvalue1"> </p>
+      </div>
+    </div>
+    <div class="card text-center" style="width: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">Expenses</h5>
+        <i class="fa fa-4x fa-archive" aria-hidden="true"></i>
+        <p id="getvalue2"> </p>
+      </div>
+    </div>
+    <div class="card text-center" style="width: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">Balance</h5>
+      <i class="fa fa-4x fa-usd" aria-hidden="true"></i>
+        <p id="getvalue"> </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-4">
+<div class="card">
+  <div class="card-body">
+    <form>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Product Name</label>
+      <input type="text" class="form-control" id="Product-Name" placeholder="Name of product">
+    </div>
+    <form>
+  <div class="form-group">
+    <label for="formGroupExampleInput">Price of Product</label>
+    <input type="number" class="form-control" id="product-price" placeholder="Price">
+  </div>
+    <button type="button" onclick="myfunction2()" class="btn btn-success"> Add Expense</button>
+  </div>
+</div>
+</div>
+<div class="col-sm-6">
+  <div class="row">
+    <div class="column">
+      <h2>Expenses</h2>
+      <p id="Expense-Title"></p>
+    </div>
+    <div class="column">
+      <h2> Expense value ($)</h2>
+      <p id="Expense-value"></p>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+</div>
+
+<script>
+
+function myfunction1 () {
+  var B = document.getElementById("budget").value;
+  document.getElementById("getvalue1").innerHTML = "$ " +B;
+}
+var	a= [];
+var b= [];
+var sum2 = 0;
+//var array = [1, 2, 3, 4, 5];
+function myfunction2() {
+  var P = document.getElementById("Product-Name").value  + "<br>";
+  var N = document.getElementById("product-price").value + "<br>";
+  a.push(P);
+  b.push(N);
+  sum2 = Number(document.getElementById("product-price").value) + Number(sum2);
+  document.getElementById("Expense-Title").innerHTML= a.join(" ");
+  document.getElementById("Expense-value").innerHTML= b.join(" ");
+
+// Adding b array for expenses amount
+  //var sum = b.reduce(function(a, b){
+    //    return Number(a) + Number(b);
+    //}, 0);
+
+    document.getElementById("getvalue2").innerHTML= "$  " +sum2;
+
+    document.getElementById("getvalue").innerHTML = document.getElementById("budget").value - sum2;
+}
+
+</script>
+
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
